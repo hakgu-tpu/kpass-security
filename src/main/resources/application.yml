@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: Security
+  jwt:
+    secret: vmfhaltmskdlstkfkdgodyroqkfwkdbalroqkfwkdbalaaaaaaaaaaaaaaaabbbbb
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,6 +15,13 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+logging:
+  level:
+    # Spring Security 전체에 대한 디버그 로그 활성화
+    org.springframework.security: DEBUG
+    # 웹 관련 로그도 함께 보면 좋음
+    org.springframework.web: DEBUG
